@@ -223,7 +223,7 @@ const Hero: React.FC<HeroProps> = ({ onLearnMore }) => {
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-900 mb-8 drop-shadow-sm">
             Precision in <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-900 to-gray-900">
+            <span className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-900 mb-8 drop-shadow-sm">
               Automation & Strategy
             </span>
           </h1>
