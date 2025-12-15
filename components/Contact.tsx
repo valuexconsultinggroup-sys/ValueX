@@ -150,7 +150,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white/30 focus:bg-white/10 transition-all focus:ring-1 focus:ring-white/20" 
-                    placeholder="John Doe" 
+                    placeholder="Amol Amodkar" 
                   />
                 </div>
                 <div>
