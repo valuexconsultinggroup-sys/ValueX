@@ -33,9 +33,9 @@ const Counter = ({ value, prefix = "", suffix = "", decimals = 0 }: { value: num
   }, [isInView, value, motionValue, decimals]);
 
   return (
-    <div ref={inViewRef} className="inline-flex items-center">
+    <div ref={inViewRef} className="inline-flex items-center whitespace-nowrap">
       <span>{prefix}</span>
-      <span ref={ref} className="tabular-nums tracking-tighter">0</span>
+      <span ref={ref} className="tabular-nums tracking-tighter mx-0.5">0</span>
       <span>{suffix}</span>
     </div>
   );
@@ -48,7 +48,7 @@ const Stats: React.FC = () => {
       <div className="absolute top-0 left-1/4 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-start">
           {stats.map((stat, index) => (
             <motion.div 
               key={index}
@@ -56,10 +56,11 @@ const Stats: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="text-center group"
+              className="flex flex-col items-center justify-start text-center group"
             >
-              <h3 className="text-4xl md:text-5xl font-bold tracking-tighter text-gray-900 mb-2 flex justify-center items-center">
-                 <span className="bg-clip-text text-transparent bg-gradient-to-br from-black to-gray-600 group-hover:to-black transition-all duration-500">
+              {/* Added min-h-[3.5rem] to align the labels below, even if numbers vary slightly in height */}
+              <h3 className="min-h-[3.5rem] text-4xl md:text-5xl font-bold tracking-tighter text-gray-900 mb-3 flex items-end justify-center">
+                 <span className="bg-clip-text text-transparent bg-gradient-to-br from-black to-gray-600 group-hover:to-black transition-all duration-500 leading-none">
                     <Counter 
                       value={stat.value} 
                       prefix={stat.prefix} 
