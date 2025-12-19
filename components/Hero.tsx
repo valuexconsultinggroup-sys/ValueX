@@ -218,13 +218,13 @@ const Hero: React.FC<HeroProps> = ({ onLearnMore }) => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-white/60 shadow-sm text-xs font-semibold text-gray-700 mb-8 cursor-default ring-1 ring-black/5"
           >
             <Cpu size={14} className="text-blue-600 animate-pulse" />
-            <span>AI-First Consulting Architecture</span>
+            <span>Consulting for the AI age</span>
           </motion.div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-900 mb-8 drop-shadow-sm">
-            Precision in <br />
+            Transforming Business <br />
             <span className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-900 mb-8 drop-shadow-sm">
-              Automation & Strategy
+              Outcome-led. AI-powered.
             </span>
           </h1>
         </motion.div>
