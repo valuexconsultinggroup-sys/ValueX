@@ -56,22 +56,32 @@ const Stats: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex flex-col items-center justify-start text-center group"
+              className="flex flex-col items-center justify-start text-center group w-full"
             >
-              {/* Added min-h-[3.5rem] to align the labels below, even if numbers vary slightly in height */}
-              <h3 className="min-h-[3.5rem] text-4xl md:text-5xl font-bold tracking-tighter text-gray-900 mb-3 flex items-end justify-center">
-                 <span className="bg-clip-text text-transparent bg-gradient-to-br from-black to-gray-600 group-hover:to-black transition-all duration-500 leading-none">
-                    <Counter 
-                      value={stat.value} 
-                      prefix={stat.prefix} 
-                      suffix={stat.suffix} 
-                      decimals={stat.decimals}
-                    />
-                 </span>
-              </h3>
-              <p className="text-sm font-medium text-gray-500 uppercase tracking-widest group-hover:text-black transition-colors duration-300">
-                {stat.label}
-              </p>
+              {/* FIX: Enforce a FIXED height container (h-16) for the numbers.
+                items-end: ensures the numbers sit on the same baseline.
+              */}
+              <div className="h-14 md:h-16 flex items-end justify-center mb-3 w-full">
+                <h3 className="text-4xl md:text-5xl font-bold tracking-tighter text-gray-900 leading-none flex items-center justify-center">
+                   <span className="bg-clip-text text-transparent bg-gradient-to-br from-black to-gray-600 group-hover:to-black transition-all duration-500">
+                      <Counter 
+                        value={stat.value} 
+                        prefix={stat.prefix} 
+                        suffix={stat.suffix} 
+                        decimals={stat.decimals}
+                      />
+                   </span>
+                </h3>
+              </div>
+
+              {/* FIX: Enforce a FIXED height container (h-12) for labels.
+                This ensures that even if text wraps, it doesn't push the layout around.
+              */}
+              <div className="h-12 flex items-start justify-center w-full px-1">
+                <p className="text-sm font-medium text-gray-500 uppercase tracking-widest group-hover:text-black transition-colors duration-300 leading-tight">
+                  {stat.label}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
