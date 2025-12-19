@@ -5,7 +5,7 @@ const stats = [
   { value: 125, prefix: "$", suffix: "M+", label: "Client Value Unlocked", decimals: 0 },
   { value: 18, prefix: "", suffix: "%", label: "Avg. Cost Reduction", decimals: 0 },
   { value: 20, prefix: "", suffix: "+", label: "AI Agents Deployed", decimals: 0 },
-  { value: 20, prefix: "", suffix: "+", label: "# Clients", decimals: 0 }
+  { value: 30, prefix: "", suffix: "+", label: "# Clients", decimals: 0 }
 ];
 
 const Counter = ({ value, prefix = "", suffix = "", decimals = 0 }: { value: number, prefix?: string, suffix?: string, decimals?: number }) => {
