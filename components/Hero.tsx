@@ -223,7 +223,7 @@ const Hero: React.FC<HeroProps> = ({ onLearnMore }) => {
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-900 mb-8 drop-shadow-sm">
             Transforming Business <br />
-            <span className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-600 mb-8 drop-shadow-sm">
+            <span className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-gray-900 mb-8 drop-shadow-sm">
               Outcome-led. AI-powered.
             </span>
           </h1>
