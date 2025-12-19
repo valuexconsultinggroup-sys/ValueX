@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useInView, useMotionValue, animate } from 'framer-motion';
 
 const stats = [
   { value: 125, prefix: "$", suffix: "M+", label: "Client Value Unlocked", decimals: 0 },
@@ -14,25 +14,23 @@ const Counter = ({ value, prefix = "", suffix = "", decimals = 0 }: { value: num
   const isInView = useInView(inViewRef, { once: true, margin: "-20%" });
   
   const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    damping: 30,
-    stiffness: 55,
-    mass: 1
-  });
 
   useEffect(() => {
     if (isInView) {
-      motionValue.set(value);
+      // Switch from useSpring to animate() for guaranteed completion
+      // duration: 2.5 seconds, ease: "circOut" (starts fast, slows down gently)
+      const controls = animate(motionValue, value, {
+        duration: 2.5,
+        ease: "circOut",
+        onUpdate: (latest) => {
+          if (ref.current) {
+            ref.current.textContent = latest.toFixed(decimals);
+          }
+        }
+      });
+      return () => controls.stop();
     }
-  }, [isInView, value, motionValue]);
-
-  useEffect(() => {
-    return springValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = latest.toFixed(decimals);
-      }
-    });
-  }, [springValue, decimals]);
+  }, [isInView, value, motionValue, decimals]);
 
   return (
     <div ref={inViewRef} className="inline-flex items-center">
