@@ -18,7 +18,8 @@ interface CounterProps {
 const Counter: React.FC<CounterProps> = ({ value, prefix = "", suffix = "", decimals = 0 }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inViewRef = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(inViewRef, { once: true, margin: "-20%" });
+  // Removed negative margin to ensure it triggers reliably on all screen heights
+  const isInView = useInView(inViewRef, { once: true });
   
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
